@@ -25,8 +25,13 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<%= yield %>
-</div> <!-- Closes Containter-->
 
+    <%= render 'partials/jumbotron' %>
+    <div class="container">
+<%= yield %>
+ 
+</div> <!-- Closes Containter-->
+<br/>
+<%= render 'partials/footer' %>
 </body>
 </html>

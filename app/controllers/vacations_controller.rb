@@ -5,11 +5,11 @@ class VacationsController < ApplicationController
   # GET /vacations
   # GET /vacations.json
   def index
-    @vacations = Vacation.all
-    
-    
+   # @vacations = Vacation.all
+   @search = VacationSearch.new(params[:search])
+    @vacations = @search.scope
   end
-
+    
   # GET /vacations/1
   # GET /vacations/1.json
   def show
@@ -18,6 +18,7 @@ class VacationsController < ApplicationController
   # GET /vacations/new
   def new
     @vacation = Vacation.new
+   
   end
 
   # GET /vacations/1/edit
@@ -72,6 +73,6 @@ class VacationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vacation_params
-      params.require(:vacation).permit(:date, :days, :employee_id, :dept, :status_type)
+      params.require(:vacation).permit(:date, :days, :name, :dept, :status_type)
     end
 end

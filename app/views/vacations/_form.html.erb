@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :date %><br>
     <%= f.datetime_select :date %>
   </div>
   
-   <div class="control-group">
-  <%= f.label :employee_id, class: 'control-label' %>
+   <div class="field">
+  <%= f.label :employee_id %>
       <div class="controls">
-        <%= collection_select( :invoice, :employee_id, Employee.all, :id, :name, {}, { :multiple => false } ) %>
+        <%= collection_select( :vacation, :employee_id, Employee.all, :id, :name, {}, { :multiple => false } ) %>
     </div>
   </div>
   
