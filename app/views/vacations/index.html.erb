@@ -31,7 +31,7 @@
             <tr>
               <td><%= vacation.date.strftime("%d/%m/%Y") %></td>
               <td><%= vacation.days %></td>
-              <td><%= vacation.employee_id %></td>
+              <td><%= vacation.employee.name %></td>
               <td><%= vacation.dept %></td>
               <td><%= vacation.status_type %></td>
               <td><%= link_to 'Show', vacation, class: "btn btn-mini btn-info" %></td>

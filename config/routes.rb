@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :profiles
+
   resources :employees
 
   devise_for :users
@@ -11,4 +13,6 @@ Rails.application.routes.draw do
   resources :vacations
 
   root to: 'welcome#index'
+  
+  get '/signedinuserprofile' => 'profiles#signedinuserprofile'
 end
