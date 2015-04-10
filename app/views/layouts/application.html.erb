@@ -15,11 +15,18 @@
       <li><%= link_to "Vacation", vacations_path %></li>
       <li><%= link_to "Employees", employees_path %></li>
       <li><%= link_to "Contact", welcome_contact_path %></li>
-      <li><%= link_to "Login / Register", user_session_path %></li>
+        <% if user_signed_in? %>
+      <li><%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-mini btn-danger', :method => :delete%></li>
+      <% else %>
+       <li><%= link_to "Login / Register", user_session_path %></li>
+       <% end %>
   </ul>
   <br/>
   <% if user_signed_in? %>
 <div>Signed in as... <%= current_user.email %>
+<% if current_user.admin? %>
+<h4>Hello, Admin</h4>
+<% end %>
 <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-mini btn-danger', :method => :delete%>
 </div>
 <% else %>

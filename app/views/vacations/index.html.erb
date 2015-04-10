@@ -35,8 +35,11 @@
               <td><%= vacation.dept %></td>
               <td><%= vacation.status_type %></td>
               <td><%= link_to 'Show', vacation, class: "btn btn-mini btn-info" %></td>
-              <td><%= link_to 'Edit', edit_vacation_path(vacation), class: "btn btn-mini btn-success" %></td>
-              <td><%= link_to 'Destroy', vacation, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: 'Are you sure?' } %></td>
+              <% if current_user.admin? %>
+          <td><%= link_to 'Edit', edit_vacation_path(vacation), class: "btn btn-mini btn-success" %></td>
+          <td><%= link_to 'Destroy', vacation, method: :delete, class: "btn btn-mini btn-danger", data:
+          { confirm: 'Are you sure?' } %></td>
+          <% end %>
             </tr>
           <% end %>
         </tbody>

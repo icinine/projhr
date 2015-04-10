@@ -1,13 +1,19 @@
 class VacationsController < ApplicationController
-  before_action :authenticate_user!
+  before_filter :authenticate_user!
+  before_filter :ensure_admin, :only => [:edit, :destroy]
   before_action :set_vacation, only: [:show, :edit, :update, :destroy]
 
   # GET /vacations
   # GET /vacations.json
   def index
-   # @vacations = Vacation.all
-   @search = VacationSearch.new(params[:search])
+    @vacations = Vacation.all
+    respond_to do |format|
+    format.html
+    format.csv { render text: @vacations.to_csv }
+    
+    @search = VacationSearch.new(params[:search])
     @vacations = @search.scope
+    end
   end
     
   # GET /vacations/1
@@ -64,6 +70,12 @@ class VacationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def ensure_admin
+unless current_user && current_user.admin?
+render :text => "Access Error Message", :status => :unauthorized
+end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :authenticate_user!
+  before_filter :ensure_admin, :only => [:edit, :destroy]
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
