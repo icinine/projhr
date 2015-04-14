@@ -24,9 +24,11 @@
     <%= f.text_field :email %>
   </div>
 
-  <div class="field">
-    <%= f.label :dept %><br>
-    <%= f.text_field :dept %>
+  <div class="control-group">
+    <%= f.label :dept, class: 'control-group' %>
+    <div class="control-group">
+    <%= collection_select( :employee, :dept_id, Dept.all, :id, :name, {} { :multiple => false} ) %>
+  </div>
   </div>
   <div class="field">
     <%= f.label :role %><br>
@@ -36,6 +38,8 @@
     <%= f.label :holidays %><br>
     <%= f.number_field :holidays %>
   </div>
+  
+   
   <div class="actions">
     <%= f.submit %>
   </div>
