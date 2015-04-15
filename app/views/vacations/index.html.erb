@@ -46,6 +46,13 @@
       </table>
 </div>
 </div>
+<br/>
+<h3>Import Vacations</h3>
+<%= form_tag import_vacations_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import Vacations" %>
+<% end %>
 <br>
+
 
 <%= link_to 'New Vacation', new_vacation_path, class: "btn btn-mini btn-success"  %>

@@ -71,11 +71,16 @@ class VacationsController < ApplicationController
     end
   end
   
+  def import 
+  	Vacation.import(params[:file])
+  	redirect_to vacations_path, notice: "Vacations Added"
+  end
+  
   def ensure_admin
-unless current_user && current_user.admin?
-render :text => "Access Error Message", :status => :unauthorized
-end
-end
+    unless current_user && current_user.admin?
+    render :text => "Access Error Message", :status => :unauthorized
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
