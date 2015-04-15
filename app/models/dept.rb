@@ -1,3 +1,3 @@
 class Dept < ActiveRecord::Base
-  has_many :Employees
+  has_many :employee
 end
