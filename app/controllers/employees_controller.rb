@@ -7,8 +7,8 @@ class EmployeesController < ApplicationController
   def ensure_admin
     unless current_user && current_user.admin?
     render :text => "Access Error Message", :status => :unauthorized
-   end
-end
+    end
+  end
 
   # GET /employees
   # GET /employees.json
@@ -78,6 +78,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :phone, :email, :string, :dept, :role, :holidays)
+      params.require(:employee).permit(:name, :phone, :email, :string, :dept_id, :role, :holidays)
     end
 end
