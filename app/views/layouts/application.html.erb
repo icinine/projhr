@@ -15,7 +15,7 @@
       <li><%= link_to "About", welcome_about_path %></li>
       <li><%= link_to "Vacation", vacations_path %></li>
       <li><%= link_to "Employees", employees_path %></li>
-      <li><%= link_to "Contact", welcome_contact_path %></li>
+      <li><%= link_to "Contact", contacts_path %></li>
         <% if user_signed_in? %>
       <li><%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-mini btn-danger', :method => :delete%></li>
       <% else %>

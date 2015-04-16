@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Profiles</h1>
+<h1>User Profiles</h1>
+<div class="media">
+  <div class="media-body">
 
-<table>
+      <table class="table table-hover">
+
+
   <thead>
     <tr>
       <th>Firstname</th>
@@ -27,7 +31,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+</div>
 <br>
 
 <%= link_to 'New Profile', new_profile_path %>

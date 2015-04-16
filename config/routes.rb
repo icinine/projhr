@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   
   get '/signedinuserprofile' => 'profiles#signedinuserprofile'
+  
+  match '/contacts',     to: 'contacts#new', via: 'get'
+resources "contacts", only: [:new, :create]
+
+  get 'contacts/contact'
 end

@@ -1,2 +1,50 @@
-<h1>Welcome#about</h1>
-<p>Find me in app/views/welcome/about.html.erb</p>
+<!-- Heading Row -->
+        <div class="row">
+            <div class="col-md-8">
+               <%= image_tag "about-img.jpg" %>
+               
+            </div>
+            <!-- /.col-md-8 -->
+            <div class="col-md-4">
+                <h1>Business Name or Tagline</h1>
+                <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+                <%= link_to "Reserve", vacations_path, class: 'btn btn-lg btn-success' %>
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Call to Action Well -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well text-center">
+                    <b>Register now for instant access.</b>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+        <div class="col-md-4">
+          <h2>Annual Leave</h2>
+          <p>Apply for Annual Leave online. Please note that Annual Leave arrangements are to be approved by your line-manager. </p>
+          <p><%= link_to "Reserve", vacations_path, class: 'btn btn-sm btn-success' %></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Employee Directory</h2>
+          <p>Use our system to get the contact details of other team members across the organisation. </p>
+          <p><%= link_to "Look Up", employees_path, class: 'btn btn-sm btn-success' %></p>
+       </div>
+        <div class="col-md-3">
+          <h2>Support</h2>
+          <p>If you have any issues or require technical support - our team of developers is only an email away. Click below to register a query with us.</p>
+          <p><%= link_to "Support", contacts_path, class: 'btn btn-sm btn-success' %></p>
+        </div>
+
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->

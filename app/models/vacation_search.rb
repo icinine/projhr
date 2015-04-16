@@ -20,4 +20,6 @@ class VacationSearch
     default
   end
   
+  
+  
 end

@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 
+#Used for contact form functionality
+
+gem 'mail_form'
+gem 'simple_form'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 

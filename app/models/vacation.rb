@@ -1,5 +1,6 @@
 class Vacation < ActiveRecord::Base
   
+  
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
     	Vacation.create! row.to_hash
@@ -17,7 +18,6 @@ class Vacation < ActiveRecord::Base
       end
     end
   end
-
 
 
 end
