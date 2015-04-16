@@ -53,6 +53,9 @@
 	<%= submit_tag "Import Vacations" %>
 <% end %>
 <br>
+<h3>Download CSV</h3>
 
-
+<%= link_to "Download Report", vacations_path(format: "csv"), class: 'btn btn-lg btn-info' %>
+<br/>
+<br>
 <%= link_to 'New Vacation', new_vacation_path, class: "btn btn-mini btn-success"  %>

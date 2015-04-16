@@ -7,6 +7,7 @@ class VacationsController < ApplicationController
   # GET /vacations.json
   def index
     @vacations = Vacation.all
+    
     respond_to do |format|
     format.html
     format.csv { render text: @vacations.to_csv }

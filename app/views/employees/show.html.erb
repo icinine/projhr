@@ -32,5 +32,15 @@
   <%= @employee.holidays %>
 </p>
 
+<!-- Display the orders of a customer -->
+<h2>Customer's orders</h2>
+<% @customer.orders.each do |order| %>
+<p>
+<b>Order details:</b>
+<%= order.details %>
+</p>
+<% end %>
+<%= link_to 'Show Orders', customer_orders_path(@customer) %>
+
 <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-mini btn-danger" %> |
 <%= link_to 'Accept Changes', employees_path, class: "btn btn-mini btn-success" %>
