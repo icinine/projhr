@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Name:</strong>
   <%= @employee.name %>
@@ -14,8 +15,6 @@
   <strong>Email:</strong>
   <%= @employee.email %>
 </p>
-
-
 
 <p>
   <strong>Dept:</strong>
@@ -32,7 +31,23 @@
   <%= @employee.holidays %>
 </p>
 
+<p>
+  <strong>EMP ID:</strong>
+  <%= @employee.employee_id %>
+</p>
 
+
+<!-- Display the orders of a customer -->
+<h2>Vacations</h2>
+<% @employee.vacations.each do |vacation| %>
+<p>
+<b>vacation details:</b>
+<%= vacation.days %>
+</p>
+<% end %>
+
+
+<%= link_to 'Show Orders', employee_vacations_path(@employee) %>
 
 <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-mini btn-danger" %> |
 <%= link_to 'Accept Changes', employees_path, class: "btn btn-mini btn-success" %>

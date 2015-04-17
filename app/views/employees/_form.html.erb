@@ -39,7 +39,12 @@
     <%= f.number_field :holidays %>
   </div>
   
-   
+    respond_to do |format|
+        format.html
+        format.csv { render text: @vacations.to_csv }
+        
+        @search = VacationSearch.new(params[:search])
+        @vacations = @search.scope
   <div class="actions">
     <%= f.submit %>
   </div>

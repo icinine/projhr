@@ -3,12 +3,20 @@ Rails.application.routes.draw do
   resources :vacations do
 	  collection { post :import }
   end
+
+  #resources :vacations
+  
+  #resources :employees
+  
+ 
+  
+  resources :employees do
+     resources :vacations
+  end
   
   resources :depts
 
   resources :profiles
-
-  resources :employees
 
   devise_for :users
   
@@ -17,8 +25,6 @@ Rails.application.routes.draw do
   get 'welcome/about'
 
   get 'welcome/contact'
-
-  resources :vacations
 
   root to: 'welcome#index'
   
