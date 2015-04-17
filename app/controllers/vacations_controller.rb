@@ -11,7 +11,7 @@ class VacationsController < ApplicationController
   def index
         @vacations = Vacation.all
         
-         respond_to do |format|
+        respond_to do |format|
         format.html
         format.csv { render text: @vacations.to_csv }
         
@@ -20,13 +20,11 @@ class VacationsController < ApplicationController
  
         # For URL like /employees/1/vacations
         # Get the employee with id=1
-       @employee = Employee.find(params[:employee_id])
+        @employee = Employee.find(params[:employee_id])
     
         # Access all vacations for that employee
-      @vacations = @employee.vacations
+        @vacations = @employee.vacations
       end
-      
-       
   end
     
   # GET /vacations/1
