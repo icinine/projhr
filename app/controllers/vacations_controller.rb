@@ -1,4 +1,6 @@
 require 'DayOff'
+require 'my_log'
+
 
 class VacationsController < ApplicationController
   before_filter :authenticate_user!
@@ -51,8 +53,15 @@ class VacationsController < ApplicationController
   # POST /vacations
   # POST /vacations.json
   def create
+    
+    
     @vacation = Vacation.new(vacation_params)
-
+    
+      # retrieve the instance/object of the MyLogger class
+    logger = MyLog.instance
+    logger.logInformation("A new Vacation was requested: " + @vacation.date )
+    
+    
     respond_to do |format|
       if @vacation.save
         format.html { redirect_to @vacation, notice: 'Vacation was successfully created.' }
@@ -60,9 +69,12 @@ class VacationsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @vacation.errors, status: :unprocessable_entity }
+        
+        
       end
     end
-  end
+    
+    end
 
   # PATCH/PUT /vacations/1
   # PATCH/PUT /vacations/1.json
