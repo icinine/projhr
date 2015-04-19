@@ -1,24 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @vacation.date %>
-</p>
 
-<p>
-  <strong>Days:</strong>
-  <%= @vacation.days %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @vacation.employee_id %>
-</p>
+<table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-1">
+        <col class="col-xs-7">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+           Name:
+          </th>
+          <td><%= @vacation.employee.name %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Date:
+          </th>
+          <td><%= @vacation.date %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+           No. of Days
+          </th>
+          <td><%= @vacation.days %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Dept (optional)
+          </th>
+          <td><%= @vacation.dept %></td>
+        </tr>
+        
+      </tbody>
+    </table>
 
-<p>
-  <strong>Dept:</strong>
-  <%= @vacation.dept %>
-</p>
-
-<%= link_to 'Edit', edit_vacation_path(@vacation) %> |
-<%= link_to 'Back', vacations_path %>
+<%= link_to 'Edit', edit_vacation_path(@vacation), class: "btn btn-mini btn-warning" %> |
+<%= link_to 'Ok', vacations_path, class: "btn btn-mini btn-success" %>

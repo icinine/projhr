@@ -24,15 +24,18 @@
         <td><%= profile.lastname %></td>
         <td><%= profile.address %></td>
         <td><%= profile.user %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <td><%= link_to 'Show', profile, class: "btn btn-mini btn-info" %></td>
+        <% if current_user.admin? %>
+                <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-mini btn-success" %></td>
+                <td><%= link_to 'Destroy', profile, method: :delete, class: "btn btn-mini btn-danger", data:
+                { confirm: 'Are you sure?' } %></td>
+          <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 </div>
 </div>
 <br>
 
-<%= link_to 'New Profile', new_profile_path %>
+<%= link_to 'New Profile', new_profile_path, class: "btn btn-mini btn-success" %>

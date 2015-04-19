@@ -1,50 +1,82 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @employee.name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
-
-<p>
-  <strong>Dept:</strong>
-  <%= @employee.dept %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @employee.role %>
-</p>
-
-<p>
-  <strong>Holidays:</strong>
-  <%= @employee.holidays %>
-</p>
-
-
+<table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-1">
+        <col class="col-xs-7">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            Name:
+          </th>
+          <td><%= @employee.name %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Phone:
+          </th>
+          <td><%= @employee.phone %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Email:
+          </th>
+          <td><%= @employee.email %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Dept:
+          </th>
+          <td><%= @employee.dept %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Role:
+          </th>
+          <td><%= @employee.role %></td>
+        </tr>
+        <tr>
+          <th scope="row">
+            Holidays:
+          </th>
+          <td>  <%= @employee.holidays %></td>
+        </tr>
+        
+       
+      </tbody>
+    </table>
 
 
 <!-- Display the orders of a customer -->
-<h2>Vacations</h2>
+<h2>Vacation Applications</h2>
+
 <% @employee.vacations.each do |vacation| %>
 <p>
-<b>vacation details:</b>
-<%= vacation.days %>
+  <table class="table table-hover">
+   <thead>
+      <tr>
+        <th>Vacation Details</th>
+          <th colspan="3"></th>
+          </tr>
+          </thead>
+           <tbody>
+             <tr>
+<td><%= vacation.days %></td>
 </p>
+ </tr>
+          </tbody>
+          </table>
+
 <% end %>
 
-
-<%= link_to 'Show Orders', employee_vacations_path(@employee) %>
-
+<%= link_to 'Vacations', employee_vacations_path(@employee), class: "btn btn-mini btn-warning" %> |
 <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-mini btn-danger" %> |
-<%= link_to 'Accept Changes', employees_path, class: "btn btn-mini btn-success" %>
+<%= link_to 'Ok', employees_path, class: "btn btn-mini btn-success" %>
