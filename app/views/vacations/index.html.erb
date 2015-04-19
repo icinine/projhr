@@ -37,8 +37,7 @@
               <td><%= link_to 'Show', vacation, class: "btn btn-mini btn-info" %></td>
               <% if current_user.admin? %>
           <td><%= link_to 'Edit', edit_vacation_path(vacation), class: "btn btn-mini btn-success" %></td>
-          <td><%= link_to 'Destroy', vacation, method: :delete, class: "btn btn-mini btn-danger", data:
-          { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', vacation, method: :delete, class: "btn btn-mini btn-danger", data: { confirm: 'Are you sure?' } %></td>
           <% end %>
             </tr>
           <% end %>
@@ -49,6 +48,18 @@
 
 <br />
 
+
+<img src="
+  <%= require 'gchart'
+  Gchart.pie(:size => '600x500',
+      :title => "Holiday Tracker",
+      :bg => 'ffffff',
+      :axis_with_labels => ['y'],
+      :legend => ['Holidays'],
+      :data => @dayData,
+      :labels => @dayData)
+  %>
+" />
 <br/>
 <h3>Import Vacations</h3>
 <%= form_tag import_vacations_path, multipart: true do %>

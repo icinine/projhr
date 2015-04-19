@@ -35,7 +35,7 @@
           <th scope="row">
             Dept:
           </th>
-          <td><%= @employee.dept %></td>
+          <td><%= @employee.dept.name %></td>
         </tr>
         <tr>
           <th scope="row">
@@ -68,11 +68,19 @@
           </tr>
           </thead>
            <tbody>
-             <tr>
-<td><%= vacation.days %></td>
+                <tr>
+<td><%= "Days off"%></td>
+<td><%= "Date(s)" %></td>
 </p>
  </tr>
+             <tr>
+<td><%= vacation.days %></td>
+<td><%= vacation.date %></td>
+</p>
+ </tr>
+ 
           </tbody>
+       
           </table>
 
 <% end %>
