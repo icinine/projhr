@@ -16,18 +16,18 @@ class VacationsController < ApplicationController
     @search = VacationSearch.new(params[:search])
     @vacations = @search.scope
     
-   # @daysData= Vacation.new(params[:days])
+
    
    @theDay = Vacation.all
     @dayData = []
    
     @theDay.each do |n| 
        @myDay = DayOff.myDay(n.days)
-       if @dayOut != 0
+    #   if @dayOut != 0
          @dayData << n.days
-       else
-         @dayData << n.days
-       end
+    #   else
+      #   @dayData << n.days
+     #  end
     end
     
     end

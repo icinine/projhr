@@ -5,7 +5,7 @@ def self.myDay(days)
 end
 
 def dayOut
-return @myDay
+  return @myDay
 end
 
 end
