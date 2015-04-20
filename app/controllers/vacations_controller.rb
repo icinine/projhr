@@ -11,9 +11,12 @@ class VacationsController < ApplicationController
   # GET /vacations.json
   def index
     @vacations = Vacation.all
+    
+    
     respond_to do |format|
     format.html
     format.csv { render text: @vacations.to_csv }
+    
     
     @search = VacationSearch.new(params[:search])
     @vacations = @search.scope
@@ -54,7 +57,7 @@ class VacationsController < ApplicationController
     
       # retrieve the instance/object of the MyLogger class
     logger = MyLog.instance
-    logger.logInformation("A new Vacation was requested: " + @vacation.date )
+    logger.logInformation("A new Vacation was requested: " + @vacation.employee.name )
     
     
     respond_to do |format|
@@ -69,7 +72,7 @@ class VacationsController < ApplicationController
       end
     end
     
-    end
+   end
 
   # PATCH/PUT /vacations/1
   # PATCH/PUT /vacations/1.json

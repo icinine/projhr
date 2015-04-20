@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
 <h1>Vacations Applications</h1>
+<!-- Implement Search Function -->
   <div class="pull-right range-query">
     <%= form_tag vacations_path, method: :get do %>
       <%= text_field_tag 'search[date_from]', @search.date_from %>
@@ -14,7 +15,7 @@
 <div class="media">
   <div class="media-body">
 
-      <table class="table table-hover">
+      <table class="table table-hover"><!-- Use Bootstrap styling for Table -->
         <thead>
           <tr>
             <th>Date</th>
@@ -56,11 +57,14 @@
 <% end %>
 </div>
 <br/>
+<!--Download the CSV --> 
 <%= link_to "Download CSV Report", vacations_path(format: "csv"), class: 'btn btn-mini btn-info' %> | <%= link_to 'New Vacation', new_vacation_path, class: "btn btn-mini btn-success"  %>
 <br/>
+
+<!-- Constuct the pie chart-->
 <img src="
   <%= require 'gchart'
-  Gchart.pie(:size => '300x300',
+  Gchart.pie(:size => '500x300',
       :title => "Holiday Tracker",
       :bg => 'ffffff',
       :axis_with_labels => ['y'],
