@@ -22,15 +22,10 @@ class VacationsController < ApplicationController
    
    @theDay = Vacation.all
     @dayData = []
-   
     @theDay.each do |n| 
        @myDay = DayOff.myDay(n.days)
-    #   if @dayOut != 0
-         @dayData << n.days
-    #   else
-      #   @dayData << n.days
-     #  end
-    end
+             @dayData << n.days
+     end
     
     end
   end
