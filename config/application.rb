@@ -24,5 +24,9 @@ module Projhr
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     #config.active_record.observers = :comment_observer, :signup_observer #use the Observer pattern
+    
+    #config.active_record.observers = :model1_observer, :model2_observer
+#config.active_record.observers = :vacation_observer
+
   end
 end
