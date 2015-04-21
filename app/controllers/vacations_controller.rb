@@ -1,12 +1,12 @@
 require 'DayOff'
 require 'my_log'
-
+require 'myObs'
 
 class VacationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :ensure_admin, :only => [:edit, :destroy]
   before_action :set_vacation, only: [:show, :edit, :update, :destroy]
-
+  include Observable
   # GET /vacations
   # GET /vacations.json
   def index
@@ -41,6 +41,7 @@ class VacationsController < ApplicationController
   # GET /vacations/new
   def new
     @vacation = Vacation.new
+    add_observer(Notifier.new)
    
   end
 
@@ -71,12 +72,13 @@ class VacationsController < ApplicationController
         
       end
     end
-    
+   
    end
 
   # PATCH/PUT /vacations/1
   # PATCH/PUT /vacations/1.json
   def update
+    
     respond_to do |format|
       if @vacation.update(vacation_params)
         format.html { redirect_to @vacation, notice: 'Vacation was successfully updated.' }
