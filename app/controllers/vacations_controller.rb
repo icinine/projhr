@@ -87,8 +87,7 @@ class VacationsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @vacation.errors, status: :unprocessable_entity }
         
-        ## update the cost and the description details
-         
+        
          # build a hash with the updated information of our vacation
           updated_information = {
           "firstname" => @vacation.name,
