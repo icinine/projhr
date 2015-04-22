@@ -28,7 +28,7 @@
                 <td><%= employee.dept.name %></td>
                 <td><%= employee.role %></td>
                 <td><%= employee.holidays %></td>
-                <td><%= link_to 'Show', employee, class: "btn btn-mini btn-info" %></td>
+                <td><%= link_to 'History', employee, class: "btn btn-mini btn-info" %></td>
                 <% if current_user.admin? %>
                 <td><%= link_to 'Edit', edit_employee_path(employee), class: "btn btn-mini btn-success" %></td>
                 <td><%= link_to 'Destroy', employee, method: :delete, class: "btn btn-mini btn-danger", data:
