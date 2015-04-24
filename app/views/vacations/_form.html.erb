@@ -42,7 +42,7 @@
     <div class="control-group">
     <%= f.label "Status", class: 'control-label' %>
       <div class="controls">
-    	<%= f.select(:status_type, options_for_select([['PENDING', 'PENDING'], ['APPROVED', 'APPROVED']]), { include_blank: false }) %> 
+    	<%= f.select(:status_type, options_for_select([['PENDING', 'PENDING'], ['APPROVED', 'APPROVED'], ['DENIED','DENIED']]), { include_blank: false }) %> 
     </div>
 </div>
   <br/>
